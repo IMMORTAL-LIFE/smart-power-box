@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房間管理 - 智能配電箱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/transitions.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- 預加載動畫 -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- 手機框架 -->
+    <div class="max-w-md mx-auto my-8 bg-white rounded-[3rem] shadow-2xl overflow-hidden h-[800px] relative page-transition">
+        <!-- 狀態欄 -->
+        <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
+            <span>9:41</span>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主頁面 -->
+        <div class="p-4 overflow-y-auto h-[calc(100%-120px)]">
+            <!-- 頁面標題 -->
+            <div class="flex justify-between items-center mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">房間管理</h1>
+                    <p class="text-gray-600">共 12 間房間</p>
+                </div>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-plus mr-2"></i>新增房間
+                </button>
+            </div>
+
+            <!-- 搜尋和篩選 -->
+            <div class="mb-6">
+                <div class="flex gap-4">
+                    <div class="flex-1 relative">
+                        <input type="text" placeholder="搜尋房間..." 
+                            class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 房間列表 -->
+            <div class="space-y-4">
+                <!-- 異常房間 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border-l-4 border-red-500">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold">A03</h3>
+                                <p class="text-sm text-gray-500">陳大文</p>
+                            </div>
+                            <span class="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm">異常</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <div>
+                                <p class="text-gray-600">即時用電：<span class="text-red-500 font-semibold">2.8 kW</span></p>
+                                <p class="text-gray-600">本月用電：67 kWh</p>
+                            </div>
+                            <button class="text-blue-500 hover:text-blue-600">
+                                詳情 <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 正常房間 -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border-l-4 border-green-500">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold">A01</h3>
+                                <p class="text-sm text-gray-500">李小明</p>
+                            </div>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">正常</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <div>
+                                <p class="text-gray-600">即時用電：1.2 kW</p>
+                                <p class="text-gray-600">本月用電：42 kWh</p>
+                            </div>
+                            <button class="text-blue-500 hover:text-blue-600">
+                                詳情 <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden border-l-4 border-green-500">
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-semibold">A02</h3>
+                                <p class="text-sm text-gray-500">黃小芳</p>
+                            </div>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">正常</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <div>
+                                <p class="text-gray-600">即時用電：0.8 kW</p>
+                                <p class="text-gray-600">本月用電：38 kWh</p>
+                            </div>
+                            <button class="text-blue-500 hover:text-blue-600">
+                                詳情 <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部導航欄 -->
+        <div class="absolute bottom-0 w-full bg-white border-t">
+            <div class="flex justify-around py-4">
+                <a href="dashboard.html" class="text-gray-400">
+                    <i class="fas fa-home text-xl"></i>
+                    <p class="text-xs">主頁</p>
+                </a>
+                <a href="rooms.html" class="text-blue-500">
+                    <i class="fas fa-door-open text-xl"></i>
+                    <p class="text-xs">房間</p>
+                </a>
+                <a href="billing.html" class="text-gray-400">
+                    <i class="fas fa-file-invoice-dollar text-xl"></i>
+                    <p class="text-xs">收費</p>
+                </a>
+                <a href="analytics.html" class="text-gray-400">
+                    <i class="fas fa-chart-line text-xl"></i>
+                    <p class="text-xs">分析</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/transitions.js"></script>
+    <script>
+        // 搜尋功能
+        document.querySelector('input[type="text"]').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // 這裡可以添加實際的搜尋邏輯
+        });
+
+        // 房間詳情點擊事件
+        document.querySelectorAll('.text-blue-500').forEach(button => {
+            button.addEventListener('click', function() {
+                const roomId = this.closest('.bg-white').querySelector('.text-lg').textContent;
+                // 這裡可以添加跳轉到房間詳情頁面的邏輯
+                console.log(`查看房間 ${roomId} 詳情`);
+            });
+        });
+    </script>
+</body>
+</html> 

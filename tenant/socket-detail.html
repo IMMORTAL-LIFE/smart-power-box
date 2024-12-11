@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插座詳情 - 智能配電箱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="h-full m-0 p-0 bg-gray-100">
+    <!-- 手機框架 -->
+    <div class="md:max-w-md md:mx-auto md:my-8 md:rounded-[3rem] bg-white shadow-2xl overflow-hidden relative h-full md:h-[800px]">
+        <!-- 狀態欄 -->
+        <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
+            <span>9:41</span>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主頁面 -->
+        <div class="p-4 overflow-y-auto h-[calc(100%-120px)]">
+            <!-- 返回按鈕和標題 -->
+            <div class="flex items-center mb-6">
+                <a href="usage.html" class="text-gray-600 hover:text-gray-800">
+                    <i class="fas fa-arrow-left mr-3"></i>
+                </a>
+                <h1 class="text-xl font-bold">客廳插座</h1>
+            </div>
+
+            <!-- 即時狀態 -->
+            <div class="bg-white rounded-xl p-6 mb-6">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1">即時功率</p>
+                        <p class="text-3xl font-bold">120W</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" class="sr-only peer" checked>
+                        <div class="w-14 h-8 bg-gray-200 peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all peer-checked:bg-blue-500"></div>
+                    </label>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div>
+                        <p class="text-sm text-gray-500">今日用電</p>
+                        <p class="text-lg font-semibold">0.9 kWh</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">本月用電</p>
+                        <p class="text-lg font-semibold">12.5 kWh</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">預計電費</p>
+                        <p class="text-lg font-semibold">$15.6</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 用電趨勢圖 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">用電趨勢</h2>
+                    <select class="text-sm border rounded-lg px-2 py-1">
+                        <option>24小時</option>
+                        <option>7天</option>
+                        <option>30天</option>
+                    </select>
+                </div>
+                <div class="h-48">
+                    <canvas id="usageChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 定時設置 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">定時設置</h2>
+                    <button class="text-sm text-blue-500">
+                        <i class="fas fa-plus mr-1"></i>
+                        新增
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <p class="font-medium">早上開啟</p>
+                            <p class="text-sm text-gray-500">每天 07:00</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <p class="font-medium">晚上關閉</p>
+                            <p class="text-sm text-gray-500">每天 23:00</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 場景模式 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h2 class="text-lg font-semibold mb-4">場景模式</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="p-4 bg-blue-50 rounded-xl text-center hover:bg-blue-100">
+                        <i class="fas fa-home text-blue-500 text-xl mb-2"></i>
+                        <p class="font-medium">回家模式</p>
+                    </button>
+                    <button class="p-4 bg-purple-50 rounded-xl text-center hover:bg-purple-100">
+                        <i class="fas fa-moon text-purple-500 text-xl mb-2"></i>
+                        <p class="font-medium">睡眠模式</p>
+                    </button>
+                    <button class="p-4 bg-green-50 rounded-xl text-center hover:bg-green-100">
+                        <i class="fas fa-leaf text-green-500 text-xl mb-2"></i>
+                        <p class="font-medium">節能模式</p>
+                    </button>
+                    <button class="p-4 bg-gray-50 rounded-xl text-center hover:bg-gray-100">
+                        <i class="fas fa-plus text-gray-500 text-xl mb-2"></i>
+                        <p class="font-medium">自定義</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 安全設置 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h2 class="text-lg font-semibold mb-4">安全設置</h2>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-medium">過載保護</p>
+                            <p class="text-sm text-gray-500">超過 2000W 自動斷電</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="font-medium">異常通知</p>
+                            <p class="text-sm text-gray-500">用電異常時推送通知</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部導航欄 -->
+        <div class="absolute bottom-0 w-full bg-white border-t">
+            <div class="flex justify-around py-4">
+                <a href="dashboard.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-home text-xl"></i>
+                    <p class="text-xs">主頁</p>
+                </a>
+                <a href="usage.html" class="text-blue-500 flex flex-col items-center">
+                    <i class="fas fa-chart-bar text-xl"></i>
+                    <p class="text-xs">用電</p>
+                </a>
+                <a href="payment.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-wallet text-xl"></i>
+                    <p class="text-xs">繳費</p>
+                </a>
+                <a href="support.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-headset text-xl"></i>
+                    <p class="text-xs">支援</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化用電趨勢圖表
+        const ctx = document.getElementById('usageChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['00:00', '03:00', '06:00', '09:00', '12:00', '15:00', '18:00', '21:00'],
+                datasets: [{
+                    label: '功率 (W)',
+                    data: [50, 45, 40, 120, 180, 150, 200, 120],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

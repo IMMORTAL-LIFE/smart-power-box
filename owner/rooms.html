@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-HK" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>房間管理 - 智能配電箱</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="../assets/css/transitions.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
-    <!-- 預加載動畫 -->
-    <div class="preloader">
-        <div class="spinner"></div>
-    </div>
-
+<body class="h-full m-0 p-0 bg-gray-100">
     <!-- 手機框架 -->
-    <div class="max-w-md mx-auto my-8 bg-white rounded-[3rem] shadow-2xl overflow-hidden h-[800px] relative page-transition">
+    <div class="md:max-w-md md:mx-auto md:my-8 md:rounded-[3rem] bg-white shadow-2xl overflow-hidden relative h-full md:h-[800px]">
         <!-- 狀態欄 -->
         <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
             <span>9:41</span>
@@ -53,7 +47,7 @@
                 </div>
             </div>
 
-            <!-- 房間列表 -->
+            <!-- 房間列��� -->
             <div class="space-y-4">
                 <!-- 異常房間 -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden border-l-4 border-red-500">
@@ -77,7 +71,7 @@
                     </div>
                 </div>
 
-                <!-- 正常房間 -->
+                <!-- ��常房間 -->
                 <div class="bg-white rounded-xl shadow-sm overflow-hidden border-l-4 border-green-500">
                     <div class="p-4">
                         <div class="flex justify-between items-start mb-3">
@@ -145,7 +139,6 @@
         </div>
     </div>
 
-    <script src="../assets/js/transitions.js"></script>
     <script>
         // 搜尋功能
         document.querySelector('input[type="text"]').addEventListener('input', function(e) {
@@ -157,7 +150,7 @@
         document.querySelectorAll('.text-blue-500').forEach(button => {
             button.addEventListener('click', function() {
                 const roomId = this.closest('.bg-white').querySelector('.text-lg').textContent;
-                // 這裡可以添加跳轉到房間詳情頁面的邏輯
+                // 這裡可以添加跳轉到房間詳情��面的邏輯
                 console.log(`查看房間 ${roomId} 詳情`);
             });
         });

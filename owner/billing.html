@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收費管理 - 智能配電箱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="h-full m-0 p-0 bg-gray-100">
+    <!-- 手機框架 -->
+    <div class="md:max-w-md md:mx-auto md:my-8 md:rounded-[3rem] bg-white shadow-2xl overflow-hidden relative h-full md:h-[800px]">
+        <!-- 狀態欄 -->
+        <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
+            <span>9:41</span>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主頁面 -->
+        <div class="p-4 overflow-y-auto h-[calc(100%-120px)]">
+            <!-- 頁面標題 -->
+            <div class="mb-6">
+                <h1 class="text-2xl font-bold text-gray-800">收費管理</h1>
+                <p class="text-gray-600">管理所有房間的電費收取</p>
+            </div>
+
+            <!-- 收費概況 -->
+            <div class="bg-green-500 text-white rounded-xl p-4 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">本月收入</h2>
+                    <span class="text-2xl font-bold">$5,280</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-green-100">
+                    <div>
+                        <p class="text-sm">已收取</p>
+                        <p class="text-xl font-bold text-white">8 間</p>
+                    </div>
+                    <div>
+                        <p class="text-sm">待收取</p>
+                        <p class="text-xl font-bold text-white">4 間</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 收費列表 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">收費狀態</h2>
+                    <div class="flex space-x-2">
+                        <button class="text-sm px-3 py-1 rounded-full bg-gray-100 text-gray-600">
+                            全部
+                        </button>
+                        <button class="text-sm px-3 py-1 rounded-full bg-green-100 text-green-600">
+                            已收取
+                        </button>
+                        <button class="text-sm px-3 py-1 rounded-full bg-yellow-100 text-yellow-600">
+                            待收取
+                        </button>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <!-- 已收取 -->
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border-l-4 border-green-500">
+                        <div>
+                            <div class="flex items-center">
+                                <h3 class="font-semibold">A01</h3>
+                                <span class="ml-2 px-2 py-0.5 bg-green-100 text-green-600 rounded text-xs">已收取</span>
+                            </div>
+                            <p class="text-sm text-gray-600">42 kWh · $420</p>
+                        </div>
+                        <button class="text-blue-500 hover:text-blue-600">
+                            詳情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 待收取 -->
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border-l-4 border-yellow-500">
+                        <div>
+                            <div class="flex items-center">
+                                <h3 class="font-semibold">A02</h3>
+                                <span class="ml-2 px-2 py-0.5 bg-yellow-100 text-yellow-600 rounded text-xs">待收取</span>
+                            </div>
+                            <p class="text-sm text-gray-600">38 kWh · $380</p>
+                        </div>
+                        <button class="text-blue-500 hover:text-blue-600">
+                            詳情 <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部導航欄 -->
+        <div class="absolute bottom-0 w-full bg-white border-t">
+            <div class="flex justify-around py-4">
+                <a href="dashboard.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-home text-xl"></i>
+                    <p class="text-xs">主頁</p>
+                </a>
+                <a href="rooms.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-door-open text-xl"></i>
+                    <p class="text-xs">房間</p>
+                </a>
+                <a href="billing.html" class="text-blue-500 flex flex-col items-center">
+                    <i class="fas fa-file-invoice-dollar text-xl"></i>
+                    <p class="text-xs">收費</p>
+                </a>
+                <a href="analytics.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-chart-line text-xl"></i>
+                    <p class="text-xs">分析</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

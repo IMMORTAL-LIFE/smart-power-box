@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>繳費 - 智能配電箱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="h-full m-0 p-0 bg-gray-100">
+    <div class="md:max-w-md md:mx-auto md:my-8 md:rounded-[3rem] bg-white shadow-2xl overflow-hidden relative h-full md:h-[800px]">
+        <!-- 狀態欄 保持不變 -->
+        <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
+            <span>9:41</span>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主頁面 -->
+        <div class="p-4 overflow-y-auto h-[calc(100%-120px)]">
+            <!-- 本月賬單概覽 -->
+            <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 mb-6 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4">
+                    <i class="fas fa-bolt text-4xl text-blue-300 opacity-25"></i>
+                </div>
+                <h2 class="text-lg mb-2 flex items-center">
+                    <i class="fas fa-file-invoice-dollar mr-2"></i>
+                    本月電費
+                </h2>
+                <div class="flex items-baseline mb-4">
+                    <span class="text-3xl font-bold">$420</span>
+                    <span class="ml-2 text-blue-100">預計</span>
+                </div>
+                <div class="flex justify-between text-sm text-blue-100">
+                    <span><i class="fas fa-plug mr-1"></i>用電量：350 kWh</span>
+                    <span><i class="fas fa-calendar mr-1"></i>截止日期：25/02</span>
+                </div>
+            </div>
+
+            <!-- 快速支付選項 -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <button class="flex flex-col items-center p-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <i class="fab fa-apple-pay text-2xl mb-1"></i>
+                    <span class="text-xs">Apple Pay</span>
+                </button>
+                <button class="flex flex-col items-center p-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <i class="fab fa-google-pay text-2xl mb-1"></i>
+                    <span class="text-xs">Google Pay</span>
+                </button>
+                <button class="flex flex-col items-center p-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <i class="fas fa-credit-card text-2xl mb-1"></i>
+                    <span class="text-xs">信用卡</span>
+                </button>
+                <button class="flex flex-col items-center p-3 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <i class="fas fa-qrcode text-2xl mb-1"></i>
+                    <span class="text-xs">掃碼付</span>
+                </button>
+            </div>
+
+            <!-- 費用明細 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                    <i class="fas fa-receipt mr-2 text-blue-500"></i>
+                    費用明細
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div>
+                            <p class="font-medium flex items-center">
+                                <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+                                基本電費
+                            </p>
+                            <p class="text-sm text-gray-500">$1.2/kWh × 350 kWh</p>
+                        </div>
+                        <span class="font-semibold">$420</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div>
+                            <p class="font-medium flex items-center">
+                                <i class="fas fa-gift text-green-500 mr-2"></i>
+                                優惠折扣
+                            </p>
+                            <p class="text-sm text-gray-500">節能獎勵</p>
+                        </div>
+                        <span class="font-semibold text-green-500">-$20</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+                        <div>
+                            <p class="font-medium flex items-center">
+                                <i class="fas fa-calculator text-blue-500 mr-2"></i>
+                                應付總額
+                            </p>
+                            <p class="text-sm text-gray-500">已包含所有費用</p>
+                        </div>
+                        <span class="font-semibold text-lg text-blue-500">$400</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 繳費記錄 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h3 class="text-lg font-semibold mb-4 flex items-center">
+                    <i class="fas fa-history mr-2 text-blue-500"></i>
+                    繳費記錄
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-3 border-b hover:bg-gray-50 transition-colors rounded-lg">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">1月電費</p>
+                                <p class="text-sm text-gray-500">2024/01/20</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500">已繳費 $380</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 border-b hover:bg-gray-50 transition-colors rounded-lg">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">12月電費</p>
+                                <p class="text-sm text-gray-500">2023/12/18</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500">已繳費 $410</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 border-b hover:bg-gray-50 transition-colors rounded-lg">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-green-500"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">11月電費</p>
+                                <p class="text-sm text-gray-500">2023/11/22</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500">已繳費 $395</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部導航欄 -->
+        <div class="absolute bottom-0 w-full bg-white border-t">
+            <div class="flex justify-around py-4">
+                <a href="dashboard.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-home text-xl"></i>
+                    <p class="text-xs">主頁</p>
+                </a>
+                <a href="usage.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-chart-bar text-xl"></i>
+                    <p class="text-xs">用電</p>
+                </a>
+                <a href="payment.html" class="text-blue-500 flex flex-col items-center">
+                    <i class="fas fa-wallet text-xl"></i>
+                    <p class="text-xs">繳費</p>
+                </a>
+                <a href="support.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-headset text-xl"></i>
+                    <p class="text-xs">支援</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

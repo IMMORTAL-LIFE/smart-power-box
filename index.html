@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-HK" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="h-full m-0 p-0 bg-gray-100">
     <!-- 手機框架 -->
-    <div class="max-w-md mx-auto my-8 bg-white rounded-[3rem] shadow-2xl overflow-hidden h-[800px] relative">
+    <div class="md:max-w-md md:mx-auto md:my-8 md:rounded-[3rem] bg-white shadow-2xl overflow-hidden relative h-full md:h-[800px]">
         <!-- 狀態欄 -->
         <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
             <span>9:41</span>
@@ -21,7 +21,7 @@
         </div>
 
         <!-- 主頁面 -->
-        <div class="p-6">
+        <div class="p-4 overflow-y-auto h-[calc(100%-120px)]">
             <!-- Logo 區域 -->
             <div class="text-center mb-8">
                 <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -78,7 +78,7 @@
             </div>
 
             <!-- 系統資訊 -->
-            <div class="absolute bottom-20 left-0 right-0 text-center text-gray-500 text-sm">
+            <div class="mt-8 text-center text-gray-500 text-sm">
                 <p>版本 1.0.0</p>
                 <p class="mt-1">© 2024 智能配電箱. 版權所有</p>
             </div>

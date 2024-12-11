@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-HK" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支援 - 智能配電箱</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="h-full m-0 p-0 bg-gray-100">
+    <!-- 手機框架 -->
+    <div class="md:max-w-md md:mx-auto md:my-8 md:rounded-[3rem] bg-white shadow-2xl overflow-hidden relative h-full md:h-[800px]">
+        <!-- 狀態欄 -->
+        <div class="bg-gray-800 text-white px-6 py-3 flex justify-between items-center">
+            <span>9:41</span>
+            <div class="flex space-x-2">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- 主頁面 -->
+        <div class="p-4 overflow-y-auto h-[calc(100%-120px)]">
+            <!-- 緊急聯絡 -->
+            <div class="bg-red-50 rounded-xl p-4 mb-6">
+                <div class="flex items-center mb-3">
+                    <i class="fas fa-exclamation-circle text-red-500 text-xl mr-2"></i>
+                    <h2 class="text-lg font-semibold text-red-700">緊急支援</h2>
+                </div>
+                <p class="text-red-600 text-sm mb-3">
+                    如遇緊急情況（如跳掣、冒煙等），請立即聯絡：
+                </p>
+                <a href="tel:999" class="flex items-center justify-between bg-red-100 p-3 rounded-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt text-red-500 mr-2"></i>
+                        <span class="text-red-700 font-semibold">緊急熱線</span>
+                    </div>
+                    <span class="text-red-500">999</span>
+                </a>
+            </div>
+
+            <!-- 常見問題 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h2 class="text-lg font-semibold mb-4">常見問題</h2>
+                <div class="space-y-3">
+                    <div class="border rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50">
+                            <span class="font-medium">為什麼會跳掣？</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div class="p-4 bg-gray-50 border-t">
+                            <p class="text-sm text-gray-600">
+                                跳掣通常是由於用電量超過負載所致。建議：
+                                1. 減少同時使用大功率電器
+                                2. 檢查電器是否有故障
+                                3. 查看即時用電量是否接近上限
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50">
+                            <span class="font-medium">如何節省電費？</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div class="p-4 bg-gray-50 border-t">
+                            <p class="text-sm text-gray-600">
+                                1. 使用節能電器
+                                2. 避免在用電高峰期使用大功率電器
+                                3. 關閉不使用的電器
+                                4. 善用定時功能
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg overflow-hidden">
+                        <button class="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50">
+                            <span class="font-medium">如何查看用電記錄？</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        <div class="p-4 bg-gray-50 border-t">
+                            <p class="text-sm text-gray-600">
+                                在「用電」頁面可以查看詳細的用電記錄，包括：
+                                - 即時用電量
+                                - 歷史用電趨勢
+                                - 各電器用電分析
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 聯絡方式 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h2 class="text-lg font-semibold mb-4">聯絡我們</h2>
+                <div class="space-y-3">
+                    <a href="tel:+85212345678" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-phone text-blue-500 mr-3"></i>
+                        <div>
+                            <p class="font-medium">客戶服務熱線</p>
+                            <p class="text-sm text-gray-500">+852 1234 5678</p>
+                        </div>
+                    </a>
+                    <a href="mailto:support@smartpower.com" class="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100">
+                        <i class="fas fa-envelope text-blue-500 mr-3"></i>
+                        <div>
+                            <p class="font-medium">電郵支援</p>
+                            <p class="text-sm text-gray-500">support@smartpower.com</p>
+                        </div>
+                    </a>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                        <i class="fas fa-clock text-blue-500 mr-3"></i>
+                        <div>
+                            <p class="font-medium">服務時間</p>
+                            <p class="text-sm text-gray-500">週一至週日 09:00-22:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 意見反饋 -->
+            <div class="bg-white rounded-xl p-4 mb-6">
+                <h2 class="text-lg font-semibold mb-4">意見反饋</h2>
+                <textarea class="w-full h-24 p-3 border rounded-lg resize-none mb-3" placeholder="請描述您遇到的問題或建議..."></textarea>
+                <button class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                    提交反饋
+                </button>
+            </div>
+        </div>
+
+        <!-- 底部導航欄 -->
+        <div class="absolute bottom-0 w-full bg-white border-t">
+            <div class="flex justify-around py-4">
+                <a href="dashboard.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-home text-xl"></i>
+                    <p class="text-xs">主頁</p>
+                </a>
+                <a href="usage.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-chart-bar text-xl"></i>
+                    <p class="text-xs">用電</p>
+                </a>
+                <a href="payment.html" class="text-gray-400 hover:text-blue-500 flex flex-col items-center transition-colors">
+                    <i class="fas fa-wallet text-xl"></i>
+                    <p class="text-xs">繳費</p>
+                </a>
+                <a href="support.html" class="text-blue-500 flex flex-col items-center">
+                    <i class="fas fa-headset text-xl"></i>
+                    <p class="text-xs">支援</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
